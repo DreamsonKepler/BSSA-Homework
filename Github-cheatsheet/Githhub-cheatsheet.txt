@@ -1,0 +1,139 @@
+Github Cheatsheet:
+
+- git —version: see if git is installed
+
+Set up name and email for github:
+- type in console:
+    - git config —global user.name “name”
+    - git config —global user.email “email”
+
+Create:
+- git: make a repository
+- git init: creates a repository
+- git clone: clone the remote repository to your working directory
+
+Local Changes:
+- git status: current status of the project and show changed files in your working directory
+- git diff: change to tracked files
+- git add . : add all current changes to the next commit
+- git add - A . : add all current changes (even file deletions) to the next commit
+    - git add ‘*.txt’: also add wildcards
+    - let op: als je git add gebruikt dan stage je de file.
+- git commit -a: commit all local changes in tracked files
+- git commit: commit all previously staged changes in tracked files
+- git diff HEAD: to see what the changes are from you current commit compared to your most recent commit
+    - HEAD: The HEAD is a pointer that holds your position within all your different commits. By default HEAD points to your most recent commit, so it can be used as a quick way to reference that commit without having to look up the SHA.
+    - diff kan je ook gebruiken om te kijken naar veranderingen van files that have been staged (staged files are files that are ready to be comitted)
+        - 1. git add octofamily/octodog.txt
+        - 2. git diff —staged // to see the changes you’ve just staged
+    - You want to try to keep related changes together in separate commits. Using 'git diff' gives you a good overview of changes you have made and lets you add files or directories one at a time and commit them separately
+
+Commit History:
+- git log: show all commits, from new to old
+- git log - p <file>: show changes over time for a specific file
+- git log —summary: see more information for each commit // you can see where new files were added for the first time or where files were deleted: a good overview of what’s going on in the project
+- git blame <file>: who changed what and when in <file>
+
+Branches & Tags:
+- git branch <filename>: make a new branch
+- git branch -av: show all existing branches
+- git checkout <branch>: checkout from current head branch
+     - You can use:
+        git checkout -b new_branch
+        to checkout and create a branch at the same time. 
+        This is the same thing as doing: git branch new_branch    
+
+- git checkout — <target>: get rid of all the changes since the last commit 
+- git branch: git branch <branchname>: create new branch from your current HEAD
+- git checkout --track <remote/branch>: create a new branch based on a remote branch
+- git branch -d <branch>: delete a local branch
+- git tag <tag-name> mark the current commit with a tag
+
+
+Update & Publish:
+- git remote -v: list all currently configured remotes
+- git remote show <remote> show information aobut a remote
+- git remote add <shortname> <url> add new remote repository, named <remote>
+    - git remote add: push your local repo to the GitHub server, like so: git remote add origin https://github.com/try-git/tri_git.git
+     - git doesn’t care what you name your remotes, but its typical to name your main one origin
+    - its also a good idea for your maim repo to be on a remote server like Github incase something happens
+- git fetch <remote>: download all changed form <remote> but doesn't intergrate into HEAD
+- git pull <remote> <branch>: download changes and directly merge/integrate into HEAD
+    - git pull origin master: check for changes on GitHub repository and pull down any new changes running
+    git pull requests:
+    If you're hosting your repo on GitHub, you can do something called a pull request.
+    A pull request allows the boss of the project to look through your changes and make comments before deciding to merge in the change. It's a really great feature that is used all the time for remote workers and open-source projects
+- git stash: Sometimes when you go to pull you may have changes you don't want to commit just yet. One option you have, other than commiting, is to stash the changes.
+        Use the command 'git stash' to stash your changes, and 'git stash apply' to re-apply            your changes after your pull.
+- git push <remote> <branch> publish local changes on a remote
+- git push -u origins master: pushes our local changes to our origins repo (on GitHub)
+    - name of remote is often origin and the default local branch is master
+    - -u tells Git to remember the parameters
+- git branch -dr <remote/branch>: delete a branch on the remote
+- git push --tags: publish your tags
+
+Merge & Rebase:
+- git merge <branch>: merge <branch> into you current HEAD
+- git rebase <branch>: rebase your current HEAD onto <branch>
+- git rebase --abort: abort a rebase
+- git rebase --continue: continue a rebase after resolving conflicts
+- git mergetool: use your configured merge tool to solve conflicts
+
+Undo:
+- git reset <filename>: remove a file or files from the staging area
+    - now the file is just not staged anymore, but still there
+- git reset checkout HEAD <file>: discard all locla changes in your working directory
+- git reset -- hard <commit>: reset your HEAD pointer to a previous commit and discard all changes since then.
+- git reset <commit>: preserve all changes as unstaged changes
+- git rm: remove actual files from disk and also stage the removal of the files
+    - remove entire folder: git rm -r folder_of_cats
+    - git rm ‘*txt’: to remove al texts
+
+
+    - HEAD: The HEAD is a pointer that holds your position within all your different commits. By default HEAD points to your most recent commit, so it can be used as a quick way to reference that commit without having to look up the SHA.
+    - diff kan je ook gebruiken om te kijken naar veranderingen van files that have been staged (staged files are files that are ready to be comitted)
+        - 1. git add octofamily/octodog.txt
+        - 2. git diff —staged // to see the changes you’ve just staged
+    - You want to try to keep related changes together in separate commits. Using 'git diff' gives you a good overview of changes you have made and lets you add files or directories one at a time and commit them separately
+
+
+staging area: a place where we can group files together before we “commit” them to Git
+
+commit: is a snapshot of our repository. This way if we ever need to look back at the changes we’ve made (or if someone else does), we will see a nice timeline of all changes
+
+cloning: cloning a repository from where it is hosted
+1. copy url from github
+2. type in console: git clone + url
+
+branching
+Branches are what naturally happens when you want to work on multiple features at the same time. You wouldn't want to end up with a master branch which has Feature A half done and Feature B half done.
+Rather you'd separate the code base into two "snapshots" (branches) and work on and commit to them separately. As soon as one was ready, you might merge this branch back into the master branch and push it to the remote server.
+- delete a branch: git branch -d <filename>
+    - What if you have been working on a feature branch and you decide you really don't want this feature anymore? You might decide to delete the branch since you're scrapping the idea. You'll notice that git branch -d bad_featuredoesn't work. This is because -d won't let you delete something that hasn't been merged.
+	You can either add the --force (-f)option or use -D which combines -d -ftogether into one 		command.
+    - 
+
+Steps:
+1. git add .
+2. git status (staging area where you can remove things before you commit it into the repository
+3. git commit -m “….”
+4. (evt. git merge <filename> (the file you want to add): if you want to add the branch to the master branch)
+5. git push
+
+—
+
+Git init
+Git add [filename]
+Git add .
+Git add -A
+Git commit -m”commit message”
+Git push
+Git push origin master
+Git status
+Git log // Kan ook git log —pretty=oneline voor compact versie
+Git clone [repo name]
+Git pull
+Git branch
+Git checkout  [branch name]
+Git branch [branch name]
+
