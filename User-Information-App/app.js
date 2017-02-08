@@ -21,22 +21,39 @@
 const express = require('express');
 const fs = require ('fs');
 const app = express ();
-const router = express.Router();
+const bodyParser = require('body-parser')
 
 
 // sets the settings of app.js and view engine sets it in pug
 // render the html by pug
-//__dirname is: /Users/mikjung/Programming/BSSA-Homework/User-Information-App
-//__dirname + '/views' is: /Users/mikjung/Programming/BSSA-Homework/User-Information-App/views
-app.set('views', __dirname + '/views'); // moet je deze erbij zetten?
+app.set('views', __dirname + '/views'); 
 app.set('view engine', 'pug');
 
-// app.use(express.static(path))
 
 
-//route 1
-//handelt een GET request af en stuurt een response terug naar de client
-//deze response moet je zelf programmeren, bijv. response.send(args) of response.render(args)
+
+/** bodyParser.urlencoded(options)
+ * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+ * and exposes the resulting object (containing the keys and values) on req.body
+ */
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+
+// *bodyParser.json(options)
+//  * Parses the text as JSON and exposes the resulting object on req.body.
+ 
+
+app.use(   bodyParser.urlencoded(   {
+    extended: true
+}    )   );
+
+app.use('/static', express.static('static') )
+
+//Part 0
+	//route 1
+	//handelt een GET request af en stuurt een response terug naar de client
+	//deze response moet je zelf programmeren, bijv. response.send(args) of response.render(args)
 app.get('/', (request, response) => {
 	console.log ('render the pug-page');
 	fs.readFile(__dirname + '/users.json', 'utf-8', (error, data) => {
@@ -50,25 +67,91 @@ app.get('/', (request, response) => {
 	});
 });		
 
-//- route 2: Renders a page that displays a form which is your search bar.
+//Part 1
+	//- route 2: Renders a page that displays a form which is your search bar.
 app.get('/search', (request, response) => {
 	console.log('werkt het?');
-	// maak een searchbar in pug
-		// kijken of pug werkt (V)
-		// searchbar searchen op google -- form tag in html (V)
-		// converten naar pug (V)
-
-	// maak een response.render
 	response.render('search');
-
 })
 
 //route 3: 
 	// Takes in the post request from your form, then displays matching users on a new page.
 	// Users should be matched based on whether either their first or last name contains the input string
 app.post('/search', (request, response) => {
-	console.log('werkt app.post?')
-})
+	console.log('werkt app.post voor displayname.pug?');
+	console.log('searchbar: ' + request.body.searchbar);
+	let searchName = request.body.searchbar;
+	
+	
+	fs.readFile(__dirname + '/users.json', 'utf-8', function (err, data) { 
+		if (err) throw err 
+		const parsedData = JSON.parse(data); 
+		let displayUser = []
+		for (let i = 0; i < parsedData.length; i++) {
+
+			if (searchName === parsedData[i].firstname) {
+				console.log('parsedData ' + parsedData[i].firstname);
+				displayUser.push(parsedData[i])
+			}
+			if (searchName === parsedData[i].lastname) {
+				console.log('parsedData ' + parsedData[i].lastname);
+				displayUser.push(parsedData[i])
+			}
+			if (searchName === parsedData[i].email) {
+				console.log('parsedData ' + parsedData[i].email);
+				displayUser.push(parsedData[i])
+			}
+
+		}	
+
+		response.render('displayname', {displayUserInfo: displayUser});
+		console.log(displayUser)
+
+	});
+		
+});
+
+//Part 3
+	//route 4:
+	//renders a page with three forms on it (first name, last name, and email) 
+	// that allows you to add new users to the users.json file.
+app.get('/userform', (request, response) => {
+	console.log('werkt app.get userform.pug?');
+	response.render('userform');
+});
+
+
+
+	// voeg deze data toe aan users.json
+	// dan pas als deze data is toegevoegd; 
+	// redirecten naar je homepagina waar de 'nieuwe ' display van database wordt getoond
+	// -->
+	// read users.JSON 		GEDAAN
+	// gebruik parse
+	// arrayname.push(newArrayObject)
+	// write user.json
+
+app.post('/userform', (request, response) => {
+	// // pak data met app.post van userform (die met app.get gemaakt is)
+	fs.readFile(__dirname + '/users.json', 'utf-8', function (err, data) { 
+		if (err) throw err;
+		const userData = request.body;
+		const parsedData = JSON.parse(data); 
+		parsedData.push(userData);
+		const stringData = JSON.stringify(parsedData)
+
+		console.log('parsed: ' + parsedData) // werkt
+		console.log('userform: ' + userData) // werkt
+		console.log('stringified: ' + stringData) // werkt
+
+
+		fs.writeFile(__dirname + '/users.json', stringData, 'utf-8', (err) => {
+		if (err) throw err;
+		console.log('its saved')
+		});
+		response.redirect('/')
+	});
+});
 
 //server staat open voor connecties
 app.listen(3000,() => {

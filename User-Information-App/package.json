@@ -4,12 +4,15 @@
   "description": "Create a Node.js application that is the beginning of a user management system. Your users are all saved in a \"users.json\" file, and you can currently do the following: - search for users - add new new users to your users file.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "express": "^4.14.1",
+    "nodemon": "^1.11.0",
     "pug": "^2.0.0-beta10"
   }
 }

@@ -1,7 +1,10 @@
 doctype html
 html
 	head
+		link(rel='stylesheet', href='/static/css/style.css')
 	body
-		form(action='/search', method='post')
-			input(name='searchbar', value='Fill here in your name')  
-			button Search
+		section.webdesigntuts-workshop
+			form(action='/search', method='post')
+				input(name='searchbar', type = 'search' placeholder='Fill here in your name')
+				button Search
+
