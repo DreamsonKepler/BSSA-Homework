@@ -1,0 +1,17 @@
+		script(type='text/javascript')
+			var searchName = ["Alexandre", "Marjan", "Silvio", "Gul", "Kalamani", "Georgy"]; 
+			$(document).ready(function(){
+				$("#autosearch").autocomplete({source:searchName});
+			});
+					
+
+                    var input = $(this).val();
+
+
+                            $('#autosearch').autocomplete({
+            source: parsedData
+            focus: function(event, ui) {
+                event.preventDefault();
+            }
+        });
+    }

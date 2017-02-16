@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+	body
+		h1 hi!
+		each info in displayUserInfo
+			- var userInfo = "Firstname: " + info.firstname + " Lastname:"  + info.lastname + " Email:" + info.email;
+			p Firstname: #{info.firstname}
+			p Lastname: #{info.lastname}
+			p Email: #{info.email}

@@ -1,0 +1,7 @@
+doctype html
+html
+	head
+	body
+		each info in userInfoList
+			- var userInfo = "Firstname:" + info.firstname + "Lastname:" + info.lastname + "Email:" + info.email;
+			p #{userInfo}
