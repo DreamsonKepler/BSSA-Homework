@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		title User Information Searchbar
+		link(rel='stylesheet', href='/static/css/style.css')
+	body
+		section.webdesigntuts-workshop
+			form(autocomplete="off", action='/search', method='post')
+				input(list = 'list', name='searchbar', type = 'search', id= "autosearch" , placeholder='Fill here in your name')
+				datalist(id='list')
+				button Search
+		script(src="/static/js/jquery-3.1.1.min.js")
+		script(src="/static/js/search.js")
+
+
+
