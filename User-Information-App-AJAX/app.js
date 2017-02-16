@@ -21,14 +21,10 @@
 	// Autocomplete Modify your form so that every time the user enters a key, 
 	// it makes an AJAX call that populates the search results. Do this work in a git branch called "autocomplete". Then, merge this branch into master with a pull request.
 
-//Part 2: Bandwidth optimization Modify your form again so that AJAX requests happen at most once every 300 milliseconds. Do this work in a git branch called "bandwidth-optimization". Then, merge this branch into master with a pull request.
-
-
 const express = require('express');
 const fs = require ('fs');
 const app = express ();
 const bodyParser = require('body-parser')
-
 
 // sets the settings of app.js and view engine sets it in pug
 // render the html by pug

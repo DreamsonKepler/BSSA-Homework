@@ -1,29 +1,29 @@
-
-// const displaySearch = document.getElementById("autosearch")
-
+// Part 2: 
+    //Bandwidth optimization Modify your form again so that AJAX requests happen at most once every 300 milliseconds. 
+    // Do this work in a git branch called "bandwidth-optimization".
+    // Then, merge this branch into master with a pull request.
 
 $(document).ready(function(){
     console.log("doc loaded")
     var $displaySearch = $('#autosearch')
+    var currentTime2 = 0
     $displaySearch.keyup(function() {
         var currentInput = $displaySearch.val();
-        $.post("/displayAutoSearch", {gorilla : currentInput}, function (data, status) {
-            console.log(status)
-            console.log(data)
-           $('#list').empty()
+        currentTime1 = Date.now();
 
-            for (let i=0; i < data.length; i++) {
-                $("#list").append('<option>'+ data[i].firstname+'</option>');
-            }
-            
+        if((currentTime1 - currentTime2) > 300){
 
-        // if(e.keyCode == 32 || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 48 && e.keyCode <= 57)){
-        // latestQuery = currentQuery + String.fromCharCode(e.keyCode);
-        // displaySearch.val(latestQuery);
-        // updateResults(latestQuery);
-        // }
-            
-        });
+            $.post("/displayAutoSearch", {gorilla : currentInput}, function (data, status) {
+                console.log(status)
+                console.log(data)
+            $('#list').empty();
+
+                for (let i=0; i < data.length; i++) {
+                    $("#list").append('<option>'+ data[i].firstname+'</option>');
+                }
+                currentTime2 = Date.now();
+            });
+        };
     });
 });
 
