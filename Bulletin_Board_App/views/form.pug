@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='/static/css/style.css')
+	body
+		form#form.topBefore(action='/form', method='post')
+			input#firstname(name='firstname', type='text', placeholder='FIRSTNAME')
+			input#lastname(name='lastname', type='text', placeholder='LASTNAME')
+			<textarea id="message" type="text" placeholder="MESSAGE"></textarea>
+			input#submit(type='submit', value='GO!')
