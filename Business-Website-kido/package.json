@@ -1,0 +1,23 @@
+{
+  "name": "business-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamsonKepler/Business-Website.git"
+  },
+  "author": "kido",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DreamsonKepler/Business-Website/issues"
+  },
+  "homepage": "https://github.com/DreamsonKepler/Business-Website#readme"
+}

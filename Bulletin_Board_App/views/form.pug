@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='/static/css/style.css')
+	body
+		nav
+			.nav-wrapper
+				ul
+					li
+						a(href='/') Home
+					li
+						a.active(href='/form') Form
+					li
+						a(href='/messages') Messages
+  
+		form#form.topBefore(action='/form', method='post')
+			input#title(name='title', type='text', placeholder='TITLE')
+			textarea#message(name="body" type="text" placeholder="MESSAGE")
+			input#submit(type='submit', value='GO!')

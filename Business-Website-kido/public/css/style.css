@@ -1,0 +1,478 @@
+@font-face {
+font-family: 'Nunito', sans-serif;
+src: url('includes/fonts/Nunito');
+}
+
+@font-face {
+font-family: 'Roboto-Medium', sans-serif;
+src: url('includes/fonts/PT_Sans_Narrow');
+}
+
+
+h1, h2 {
+	font-family: 'Roboto-Bold';
+	color: white;
+}
+
+
+/*h2, {
+	font-family: 'Roboto-Medium';
+	color: white;
+}*/
+
+body, p {
+	font-family: 'Roboto-Light';
+	color: #090909;
+}
+
+/* Navbar */
+
+#navigation {
+	background-color: #080808 !important;
+}
+
+.nav-logo {
+	width: 45%;
+}
+
+.navbar-brand {
+	position: absolute;
+	float: right;
+}
+
+.navbar-nav {
+	position: absolute;
+	float: left;
+	bottom: 4px;
+}
+
+.nav-item {
+	font-family: 'Roboto-Medium';
+	color: white;
+}
+
+.nav-link {
+    padding-right: .8rem !important;
+    padding-left: .8rem !important;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+	color: white;
+}
+
+.navbar-logo {
+	padding: 3px;
+}
+
+
+/*Introduction*/
+
+#introduction {
+  background-image: url('../img/intro_crash.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+#introduction .intro-text {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+#introduction .intro-text .intro-lead-in {
+  font-family:  "Roboto-Bold", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 25px;
+}
+#introduction .intro-text .intro-heading {
+  font-family: "Roboto-Bold", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  #introduction .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+  }
+  header .intro-text .intro-lead-in {
+    font-family:  "Roboto-Bold", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 25px;
+  }
+  #introduction .intro-text .intro-heading {
+    font-family: "Roboto-Bold", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 75px;
+    margin-bottom: 50px;
+  }
+}
+
+/* Experience */
+
+.experience {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+.container-fluid {
+background-color: black;
+padding: 0 !important;
+}
+
+.col-md-4 {
+padding: 0;
+}
+
+.experience-item {
+  position: relative;
+}
+
+h4.caption{
+  max-width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 10;
+  color: white;
+  top: 30px;
+  left: 150px;
+  opacity: 0.5;
+}
+
+h4.caption:hover  {
+opacity:1
+}
+
+
+
+.img-thumbnail {
+  background-color: black;
+  border: black;
+  display: block;
+  margin: auto;
+
+}
+
+.exp-img img {
+	height: 100px;
+	width: 100px;
+}
+
+/* Refferals */
+
+.carousel-indicators{
+ top:180px;
+}
+
+.img-circle{
+  border-radius: 50%;
+}
+
+ .half-page1 {
+  display: block;
+  float: left;
+  width: 30%;
+  margin: auto;
+  position:absolute;
+  left:290px;
+}
+
+.half-page2 {
+  display: block;
+  float: right;
+  width: 30%;
+  margin: auto;
+  position:relative;
+  left:800px;
+}
+
+.image-text1{
+  display: inline;
+  padding-left: 20px;
+  margin-top: 20px;
+  left:150px;
+  position: absolute;
+}
+
+.image-text2{
+    display: inline;
+  padding-left: 20px;
+  margin-top: 20px;
+  left:150px;
+  position: absolute;
+  top:15px;
+}
+
+/*contact*/
+.red{
+    color:red;
+}
+
+.form-area
+{
+    background-color: #FAFAFA;
+  padding: 10px 40px 60px;
+  margin: 10px 0px 60px;
+  border: 1px solid grey;
+}
+
+/* featherlight */ 
+@media all {
+  .featherlight {
+    display: none;
+
+    /* dimensions: spanning the background from edge to edge */
+    position:fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 2147483647; /* z-index needs to be >= elements on the site. */
+
+    /* position: centering content */
+    text-align: center;
+
+    /* insures that the ::before pseudo element doesn't force wrap with fixed width content; */
+    white-space: nowrap;
+
+    /* styling */
+    cursor: pointer;
+    background: #333;
+    /* IE8 "hack" for nested featherlights */
+    background: rgba(0, 0, 0, 0);
+  }
+
+  /* support for nested featherlights. Does not work in IE8 (use JS to fix) */
+  .featherlight:last-of-type {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .featherlight:before {
+    /* position: trick to center content vertically */
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .featherlight .featherlight-content {
+    /* make content container for positioned elements (close button) */
+    position: relative;
+
+    /* position: centering vertical and horizontal */
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block;
+
+    /* dimensions: cut off images */
+    overflow: auto;
+    padding: 25px 25px 0;
+    border-bottom: 25px solid transparent;
+
+    /* dimensions: handling large content */
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 95%;
+
+    /* styling */
+    background: #fff;
+    cursor: auto;
+
+    /* reset white-space wrapping */
+    white-space: normal;
+  }
+
+  /* contains the content */
+  .featherlight .featherlight-inner {
+    /* make sure its visible */
+    display: block;
+  }
+
+  .featherlight .featherlight-close-icon {
+    /* position: centering vertical and horizontal */
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+
+    /* dimensions: 25px x 25px */
+    line-height: 25px;
+    width: 25px;
+
+    /* styling */
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #fff; /* Set the background in case it overlaps the content */
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+    border: none;
+    padding: 0;
+  }
+
+  .featherlight .featherlight-close-icon::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  .featherlight .featherlight-image {
+    /* styling */
+    width: 100%;
+  }
+
+
+  .featherlight-iframe .featherlight-content {
+    /* removed the border for image croping since iframe is edge to edge */
+    border-bottom: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+  }
+
+  .featherlight iframe {
+    /* styling */
+    border: none;
+  }
+
+  .featherlight * { /* See https://github.com/noelboss/featherlight/issues/42 */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+/* handling phones and small screens */
+@media only screen and (max-width: 1024px) {
+  .featherlight .featherlight-content {
+    /* dimensions: maximize lightbox with for small screens */
+    margin-left: 0;
+    margin-right: 0;
+    max-height: 98%;
+
+    padding: 10px 10px 0;
+    border-bottom: 10px solid transparent;
+  }
+}
+
+/* Deephouse-page */
+/*.deephouse-bg {
+  background-color: black;
+}*/
+
+.deephouse-layout {
+  background-color: black !important;
+  padding-top: 40px; 
+  padding-left: 80px;
+  padding-right: 80px;
+  min-width: 75%;
+}
+
+/*.deephouse-title {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 80;
+  padding-top: 160px;
+  padding-bottom: 80px;
+}*/
+
+.deephouse-layout h1.deephouse-title {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 80;
+  padding-top: 160px;
+  padding-bottom: 20px;
+}
+
+/* Gradient transparent - color - transparent */
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #f7f7f9, rgba(0, 0, 0, 0));
+}
+
+
+
+.venue-textstyle {
+  font-family: 'Roboto';
+  font-size: 40px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fbfbfb;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.deephouse-content-1 {
+  position: relative;
+}
+
+.deephouse-layout p.school-content-text {
+  color: white;
+  padding-right: 600px;
+  font-size: 17px;
+}
+
+.school-content-img {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  max-width: 100%;
+  height: auto;
+}
+
+.program-text {
+  font-family: 'Roboto';
+  font-size: 40px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+}
+
+.deephouse-content-2 {
+  position: relative;
+  padding-top: 100px;
+}
+
+.deephouse-content-2-position {
+  position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 40px;
+    padding-right: 300px;
+}
+
+.deephouse-content-2-position h3 ul li {
+  padding: 10px;
+}
+
+.deephouse-program {
+  list-style-type: none;
+  padding: 5px;
+}
+
+.deephouse-amsterdam-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.deephouse-content-2-list {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fbfbfb;
+}
