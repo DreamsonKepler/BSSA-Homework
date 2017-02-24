@@ -29,30 +29,48 @@ const pg = require('pg');
 const express = require('express');
 const app = express();
 const db = require(__dirname + '/models/db.js');
-// new Sequelize ('sequelize_fun', 'Kido', 'postgres', {
-//     dialect: 'postgres'
+const bodyParser = require('body-parser')
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/static', express.static('static'))
 
 app.set('views', __dirname + '/views'); 
 app.set('view engine', 'pug');
 
+
+
 // First Page
 app.get('/form', (request, response) => {
-    //db.someMessage();
     console.log('werkt app.get form.pug?')
     response.render('form')
 });
 
 app.post('/form', (request, response) => {
-    //db.Message.create()
-    console.log('werkt app.post?')
-});
+   console.log(request.body)
+    let newMessage = db.Message.create({
+        title: request.body.title,
+        body:  request.body.body
+    }).then( f =>{
+        console.log(f)
+        response.redirect('/messages')
+    })
+})
 
 //Second Page
  // show messages of the peopele who posted
  // make a navigate bar
+ app.get('/messages', (request, response) => {
+     db.Message.findAll()
+     .then(function(allMessages){
+         response.render('messages', {allMessages : allMessages})
+     })
+ })
+
+
 
 //server staat open voor connecties
+
+
 app.listen(3000,() => {
     console.log('Server hast started on port 3000')
 });
