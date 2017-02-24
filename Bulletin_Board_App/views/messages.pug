@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='/static/css/style.css')
+    body
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a(href='/form') Home
+                    li
+                        a(href='/form') Form
+                    li
+                        a.active(href='/messages') Messages
+        each message in allMessages
+            p #{message.title}
+            p #{message.body}
+
