@@ -10,15 +10,16 @@ font-family: 'PT_Sans_Narrow', sans-serif;
 src: url('../fonts/PT_Sans_Narrow');
 }
 
+
 body {
   font-family: 'PT_Sans_Narrow', sans-serif;
-    margin: auto;
+  margin: auto;
+  background: #e2dedb;
+  color: #b3aca7;
 }
 
 nav {
     margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
     background-color: #333;
 }
 
@@ -37,7 +38,10 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 30px;
     text-decoration: none;
 }
 
@@ -46,12 +50,20 @@ li a:hover {
 }
 
 #form #title, #message {
-    color: white
+    color: white;
 }
 
-/*#message {
-    color: ghostwhite;
-}*/
+#postedmessages {
+  color: white;
+}
+
+#messagestitle {
+  color: black;
+}
+
+#messagesbody {
+  color: black;
+}
 
 /*form.css*/
 
@@ -129,12 +141,6 @@ input:hover::placeholder, textarea:hover::placeholder {
 
 input:hover:focus::-ms-placeholder, textarea:hover::focus:-ms-placeholder {
   color: #cbc6c1;
-}
-
-body {
-  font-family: 'Lato', sans-serif;
-  background: #e2dedb;
-  color: #b3aca7;
 }
 
 header {

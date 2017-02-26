@@ -2,7 +2,6 @@ doctype html
 html
     head
         link(rel='stylesheet', href='/static/css/style.css')
-    body
         nav
             .nav-wrapper
                 ul
@@ -12,7 +11,9 @@ html
                         a(href='/form') Form
                     li
                         a.active(href='/messages') Messages
+    body
+        p#postedmessages All messages posted:
         each message in allMessages
-            p #{message.title}
-            p #{message.body}
+            p#messagestitle #{message.title}
+            p#messagesbody #{message.body}
 
