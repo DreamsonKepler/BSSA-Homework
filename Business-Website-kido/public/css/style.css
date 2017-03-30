@@ -1,13 +1,17 @@
 @font-face {
-font-family: 'Nunito', sans-serif;
-src: url('includes/fonts/Nunito');
+font-family: 'Roboto-Bold', sans-serif;
+src: url('includes/fonts/Roboto-Bold');
 }
 
 @font-face {
 font-family: 'Roboto-Medium', sans-serif;
-src: url('includes/fonts/PT_Sans_Narrow');
+src: url('includes/fonts/Roboto-Medium');
 }
 
+@font-face {
+font-family: 'Roboto-Light', sans-serif;
+src: url('includes/fonts/Roboto-Light');
+}
 
 h1, h2 {
 	font-family: 'Roboto-Bold';

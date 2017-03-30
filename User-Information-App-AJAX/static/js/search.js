@@ -14,6 +14,7 @@ $(document).ready(function(){
         if((currentTime1 - currentTime2) > 300){
 
             $.post("/displayAutoSearch", {gorilla : currentInput}, function (data, status) {
+                console.log('status:')
                 console.log(status)
                 console.log(data)
             $('#list').empty();
