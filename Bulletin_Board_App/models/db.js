@@ -13,7 +13,7 @@ db.Message = db.define('message', {
     body: Sequelize.STRING
 });
 
-
+kz
 
 //Second Page
  // show messages of the peopele who posted
